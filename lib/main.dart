@@ -23,6 +23,9 @@ class MyApp extends StatelessWidget {
 class TopPage extends StatelessWidget {
   const TopPage({Key? key}) : super(key: key);
 
+  final String loginUserIconUrl =
+      'https://pics.prcm.jp/d72814fa00d0d/84842254/jpeg/84842254_480x460.jpeg';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,6 +59,41 @@ class TopPage extends StatelessWidget {
           IconButton(
             onPressed: () {},
             icon: const Icon(CupertinoIcons.chat_bubble_text),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.black87,
+        unselectedItemColor: Colors.black45,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        iconSize: 28.0,
+        type: BottomNavigationBarType.fixed,
+        items: <BottomNavigationBarItem>[
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: '',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: '',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.ondemand_video_outlined),
+            label: '',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag_outlined),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: CircleAvatar(
+              radius: 16.0,
+              backgroundImage: NetworkImage(loginUserIconUrl),
+              onBackgroundImageError: (Object object, StackTrace? stackTrace) =>
+                  Container(color: Colors.red),
+            ),
+            label: '',
           ),
         ],
       ),

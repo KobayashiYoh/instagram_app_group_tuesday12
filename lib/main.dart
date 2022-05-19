@@ -28,6 +28,7 @@ class TopPage extends StatelessWidget {
   final String loginUserId = 'user_id';
   final String postedImageUrl =
       'https://cdn.pixabay.com/photo/2022/05/10/11/12/tree-7186835_960_720.jpg';
+  final String pressedLikeButtonUserId = 'user';
   final String postedText = '''
     投稿文
   ''';
@@ -135,6 +136,7 @@ class TopPage extends StatelessWidget {
             ],
           ),
         ),
+        Text('いいね！：$pressedLikeButtonUserId、他'),
         Text(
           postedText,
           style: const TextStyle(color: Colors.black),
@@ -203,12 +205,14 @@ class PostedItem {
   String userId;
   String iconImageUrl;
   String postedImage;
+  String pressedLikeButtonUserId;
   String text;
 
   PostedItem({
     required this.userId,
     required this.iconImageUrl,
     required this.postedImage,
+    required this.pressedLikeButtonUserId,
     required this.text,
   });
 }

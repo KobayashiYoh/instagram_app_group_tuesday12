@@ -185,3 +185,17 @@ class TopPage extends StatelessWidget {
     );
   }
 }
+
+class PostedItem {
+  String userId;
+  String iconImageUrl;
+  String postedImage;
+  String text;
+
+  PostedItem({
+    required this.userId,
+    required this.iconImageUrl,
+    required this.postedImage,
+    required this.text,
+  });
+}

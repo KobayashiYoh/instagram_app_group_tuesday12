@@ -180,7 +180,20 @@ class TopPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: instagramAppBar(),
-      body: postedItem(),
+      body: ListView(
+        children: [
+          postedItem(),
+          postedItem(),
+          postedItem(),
+          postedItem(),
+          postedItem(),
+          postedItem(),
+          postedItem(),
+          postedItem(),
+          postedItem(),
+          postedItem(),
+        ],
+      ),
       bottomNavigationBar: instagramTabBar(),
     );
   }

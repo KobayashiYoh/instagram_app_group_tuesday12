@@ -29,9 +29,7 @@ class TopPage extends StatelessWidget {
   final String postedImageUrl =
       'https://cdn.pixabay.com/photo/2022/05/10/11/12/tree-7186835_960_720.jpg';
   final String pressedLikeButtonUserId = 'user';
-  final String postedText = '''
-    投稿文
-  ''';
+  final String postedText = '投稿文';
 
   Widget userIcon({required String url, double radius = 20.0}) {
     return CircleAvatar(
@@ -78,64 +76,72 @@ class TopPage extends StatelessWidget {
     );
   }
 
+  Widget itemHeader() {
+    return Container(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              userIcon(url: loginUserIconUrl),
+              const SizedBox(width: 8.0),
+              Text(
+                loginUserId,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
+                ),
+              ),
+            ],
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.keyboard_control),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buttonMenuBar() {
+    return Container(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.favorite_border),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(CupertinoIcons.chat_bubble),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.send_outlined),
+              ),
+            ],
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.bookmark_border),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget postedItem() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  userIcon(url: loginUserIconUrl),
-                  const SizedBox(width: 8.0),
-                  Text(
-                    loginUserId,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16.0,
-                    ),
-                  ),
-                ],
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.keyboard_control),
-              ),
-            ],
-          ),
-        ),
+        itemHeader(),
         Image.network(postedImageUrl),
-        Container(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite_border),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(CupertinoIcons.chat_bubble),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.send_outlined),
-                  ),
-                ],
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.bookmark_border),
-              ),
-            ],
-          ),
-        ),
+        buttonMenuBar(),
         Text('いいね！：$pressedLikeButtonUserId、他'),
         Text(
           postedText,

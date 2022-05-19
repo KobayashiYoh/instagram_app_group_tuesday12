@@ -41,135 +41,147 @@ class TopPage extends StatelessWidget {
     );
   }
 
+  PreferredSizeWidget? instagramAppBar() {
+    return AppBar(
+      backgroundColor: Colors.white,
+      foregroundColor: Colors.black,
+      elevation: 1.0,
+      title: Row(
+        children: [
+          const Text(
+            'Instagram',
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              CupertinoIcons.chevron_down,
+              size: 16.0,
+            ),
+          )
+        ],
+      ),
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.add_box_outlined),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.favorite_border),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(CupertinoIcons.chat_bubble_text),
+        ),
+      ],
+    );
+  }
+
+  Widget postedItem() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  userIcon(url: loginUserIconUrl),
+                  const SizedBox(width: 8.0),
+                  Text(
+                    loginUserId,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                ],
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.keyboard_control),
+              ),
+            ],
+          ),
+        ),
+        Image.network(postedImageUrl),
+        Container(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.favorite_border),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(CupertinoIcons.chat_bubble),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.send_outlined),
+                  ),
+                ],
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.bookmark_border),
+              ),
+            ],
+          ),
+        ),
+        Text(
+          postedText,
+          style: const TextStyle(color: Colors.black),
+        ),
+      ],
+    );
+  }
+
+  Widget instagramTabBar() {
+    return BottomNavigationBar(
+      selectedItemColor: Colors.black87,
+      unselectedItemColor: Colors.black45,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      iconSize: 28.0,
+      type: BottomNavigationBarType.fixed,
+      items: <BottomNavigationBarItem>[
+        const BottomNavigationBarItem(
+          icon: Icon(Icons.home_outlined),
+          label: '',
+        ),
+        const BottomNavigationBarItem(
+          icon: Icon(Icons.search),
+          label: '',
+        ),
+        const BottomNavigationBarItem(
+          icon: Icon(Icons.ondemand_video_outlined),
+          label: '',
+        ),
+        const BottomNavigationBarItem(
+          icon: Icon(Icons.shopping_bag_outlined),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: userIcon(url: loginUserIconUrl, radius: 16.0),
+          label: '',
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
-        elevation: 1.0,
-        title: Row(
-          children: [
-            const Text(
-              'Instagram',
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                CupertinoIcons.chevron_down,
-                size: 16.0,
-              ),
-            )
-          ],
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.add_box_outlined),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.favorite_border),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(CupertinoIcons.chat_bubble_text),
-          ),
-        ],
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    userIcon(url: loginUserIconUrl),
-                    const SizedBox(width: 8.0),
-                    Text(
-                      loginUserId,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ],
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.keyboard_control),
-                ),
-              ],
-            ),
-          ),
-          Image.network(postedImageUrl),
-          Container(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.favorite_border),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(CupertinoIcons.chat_bubble),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.send_outlined),
-                    ),
-                  ],
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.bookmark_border),
-                ),
-              ],
-            ),
-          ),
-          Text(
-            postedText,
-            style: const TextStyle(color: Colors.black),
-          ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.black87,
-        unselectedItemColor: Colors.black45,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        iconSize: 28.0,
-        type: BottomNavigationBarType.fixed,
-        items: <BottomNavigationBarItem>[
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            label: '',
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: '',
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.ondemand_video_outlined),
-            label: '',
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag_outlined),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: userIcon(url: loginUserIconUrl, radius: 16.0),
-            label: '',
-          ),
-        ],
-      ),
+      appBar: instagramAppBar(),
+      body: postedItem(),
+      bottomNavigationBar: instagramTabBar(),
     );
   }
 }

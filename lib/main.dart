@@ -25,6 +25,21 @@ class TopPage extends StatelessWidget {
 
   final String loginUserIconUrl =
       'https://pics.prcm.jp/d72814fa00d0d/84842254/jpeg/84842254_480x460.jpeg';
+  final String loginUserId = 'user_id';
+  final String postedImageUrl =
+      'https://cdn.pixabay.com/photo/2022/05/10/11/12/tree-7186835_960_720.jpg';
+  final String postedText = '''
+    投稿文
+  ''';
+
+  Widget userIcon({required String url, double radius = 20.0}) {
+    return CircleAvatar(
+      radius: radius,
+      backgroundImage: NetworkImage(url),
+      onBackgroundImageError: (Object object, StackTrace? stackTrace) =>
+          Container(color: Colors.red),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +77,69 @@ class TopPage extends StatelessWidget {
           ),
         ],
       ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    userIcon(url: loginUserIconUrl),
+                    const SizedBox(width: 8.0),
+                    Text(
+                      loginUserId,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                  ],
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.keyboard_control),
+                ),
+              ],
+            ),
+          ),
+          Image.network(postedImageUrl),
+          Container(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.favorite_border),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(CupertinoIcons.chat_bubble),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.send_outlined),
+                    ),
+                  ],
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.bookmark_border),
+                ),
+              ],
+            ),
+          ),
+          Text(
+            postedText,
+            style: const TextStyle(color: Colors.black),
+          ),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.black87,
         unselectedItemColor: Colors.black45,
@@ -87,12 +165,7 @@ class TopPage extends StatelessWidget {
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: CircleAvatar(
-              radius: 16.0,
-              backgroundImage: NetworkImage(loginUserIconUrl),
-              onBackgroundImageError: (Object object, StackTrace? stackTrace) =>
-                  Container(color: Colors.red),
-            ),
+            icon: userIcon(url: loginUserIconUrl, radius: 16.0),
             label: '',
           ),
         ],

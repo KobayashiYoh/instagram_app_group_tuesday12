@@ -51,28 +51,22 @@ class TopPage extends StatelessWidget {
           const Text(
             'Instagram',
           ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
+          Container(
+            margin: const EdgeInsets.only(left: 4.0),
+            child: const Icon(
               CupertinoIcons.chevron_down,
               size: 16.0,
             ),
-          )
+          ),
         ],
       ),
-      actions: [
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.add_box_outlined),
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.favorite_border),
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(CupertinoIcons.chat_bubble_text),
-        ),
+      actions: const [
+        Icon(Icons.add_box_outlined),
+        SizedBox(width: 16.0),
+        Icon(Icons.favorite_border),
+        SizedBox(width: 16.0),
+        Icon(CupertinoIcons.chat_bubble_text),
+        SizedBox(width: 16.0),
       ],
     );
   }
@@ -96,40 +90,30 @@ class TopPage extends StatelessWidget {
               ),
             ],
           ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.keyboard_control),
-          ),
+          const Icon(Icons.keyboard_control),
         ],
       ),
     );
   }
 
   Widget buttonMenuBar() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Row(
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.favorite_border),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(CupertinoIcons.chat_bubble),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.send_outlined),
-            ),
-          ],
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.bookmark_border),
-        ),
-      ],
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: const [
+              Icon(Icons.favorite_border),
+              SizedBox(width: 8.0),
+              Icon(CupertinoIcons.chat_bubble),
+              SizedBox(width: 8.0),
+              Icon(Icons.send_outlined),
+            ],
+          ),
+          const Icon(Icons.bookmark_border),
+        ],
+      ),
     );
   }
 

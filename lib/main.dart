@@ -26,10 +26,11 @@ class TopPage extends StatelessWidget {
   final String loginUserIconUrl =
       'https://pics.prcm.jp/d72814fa00d0d/84842254/jpeg/84842254_480x460.jpeg';
   final String loginUserId = 'user_id';
-  final String postedImageUrl =
-      'https://cdn.pixabay.com/photo/2022/05/10/11/12/tree-7186835_960_720.jpg';
+  final String postedImageUrl = '';
   final String pressedLikeButtonUserId = 'user';
   final String postedText = '投稿文';
+  final int month = 1;
+  final int day = 1;
 
   Widget userIcon({required String url, double radius = 20.0}) {
     return CircleAvatar(
@@ -105,33 +106,30 @@ class TopPage extends StatelessWidget {
   }
 
   Widget buttonMenuBar() {
-    return Container(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.favorite_border),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(CupertinoIcons.chat_bubble),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.send_outlined),
-              ),
-            ],
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.bookmark_border),
-          ),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.favorite_border),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(CupertinoIcons.chat_bubble),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.send_outlined),
+            ),
+          ],
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.bookmark_border),
+        ),
+      ],
     );
   }
 
@@ -140,12 +138,60 @@ class TopPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         itemHeader(),
-        Image.network(postedImageUrl),
-        buttonMenuBar(),
-        Text('いいね！：$pressedLikeButtonUserId、他'),
-        Text(
-          postedText,
-          style: const TextStyle(color: Colors.black),
+        Image.network(
+          postedImageUrl,
+          errorBuilder: (c, o, e) => Container(
+            color: Colors.red,
+          ),
+        ),
+        Container(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              buttonMenuBar(),
+              Text('いいね！：$pressedLikeButtonUserId、他'),
+              Text(
+                postedText,
+                style: const TextStyle(color: Colors.black),
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        userIcon(
+                          url: loginUserIconUrl,
+                          radius: 12.0,
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(left: 8.0),
+                          child: const Text('コメントを追加…'),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 72.0,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const [
+                          Text('❤'),
+                          Text('🙌'),
+                          Text('⊕'),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Text(
+                '$month月$day日',
+                style: const TextStyle(fontSize: 13.0),
+              ),
+            ],
+          ),
         ),
       ],
     );
@@ -190,16 +236,7 @@ class TopPage extends StatelessWidget {
       appBar: instagramAppBar(),
       body: ListView(
         children: [
-          postedItem(),
-          postedItem(),
-          postedItem(),
-          postedItem(),
-          postedItem(),
-          postedItem(),
-          postedItem(),
-          postedItem(),
-          postedItem(),
-          postedItem(),
+          for (var i = 0; i < 10; i++) postedItem(),
         ],
       ),
       bottomNavigationBar: instagramTabBar(),
@@ -213,6 +250,8 @@ class PostedItem {
   String postedImage;
   String pressedLikeButtonUserId;
   String text;
+  int month;
+  int day;
 
   PostedItem({
     required this.userId,
@@ -220,5 +259,7 @@ class PostedItem {
     required this.postedImage,
     required this.pressedLikeButtonUserId,
     required this.text,
+    required this.month,
+    required this.day,
   });
 }

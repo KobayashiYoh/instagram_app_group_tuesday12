@@ -239,7 +239,7 @@ class _TopPageState extends State<TopPage> {
       appBar: instagramAppBar(),
       body: ListView(
         children: [
-          for (var i = 0; i < 10; i++) postedItem(),
+          postedItem(),
         ],
       ),
       bottomNavigationBar: instagramTabBar(),

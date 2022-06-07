@@ -28,14 +28,14 @@ class TopPage extends StatefulWidget {
 }
 
 class _TopPageState extends State<TopPage> {
-  final String loginUserIconUrl =
+  var loginUserIconUrl =
       'https://pics.prcm.jp/d72814fa00d0d/84842254/jpeg/84842254_480x460.jpeg';
-  final String loginUserId = 'user_id';
-  final String postedImageUrl = '';
-  final String pressedLikeButtonUserId = 'user';
-  final String postedText = '投稿文';
-  final int month = 1;
-  final int day = 1;
+  var loginUserId = 'user_id';
+  var postedImageUrl = '';
+  var pressedLikeButtonUserId = 'user';
+  var postedText = '投稿文';
+  var month = 1;
+  var day = 1;
 
   Widget userIcon({required String url, double radius = 20.0}) {
     return CircleAvatar(

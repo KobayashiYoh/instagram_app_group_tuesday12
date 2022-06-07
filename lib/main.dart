@@ -28,16 +28,28 @@ class TopPage extends StatefulWidget {
 }
 
 class _TopPageState extends State<TopPage> {
-  /* ---------- この行より下にプログラムを書く --------------------------------- */
-  var loginUserIconUrl =
-      'https://pics.prcm.jp/d72814fa00d0d/84842254/jpeg/84842254_480x460.jpeg'; // 自分のアイコン画像のアドレス（URL）
-  var loginUserId = 'user_id'; // 自分のユーザーID
-  var postedImageUrl = ''; // 投稿する画像のアドレス（URL）
-  var pressedLikeButtonUserId = 'user'; // いいねを押したユーザーの名前
-  var postedText = '投稿文'; // 投稿文（\nで改行）
-  var month = 1; // 月
-  var day = 1; // 日にち
-  /* ---------- この行より上にプログラムを書く --------------------------------- */
+  /* ---------- この行より上には触らない！ ------------------------------------ */
+
+  // 自分のID
+  var id = 'user_id';
+
+  // 自分のアイコン画像のアドレス（URL）
+  var aikonUrl =
+      'https://pics.prcm.jp/d72814fa00d0d/84842254/jpeg/84842254_480x460.jpeg';
+
+  // 投稿する画像のアドレス（URL）
+  var gazouUrl = '';
+
+  // 投稿する文章（\nで改行）
+  var bunsho = '投稿文';
+
+  // いいねを押したユーザーのID
+  var iineId = 'iine_user';
+
+  // 投稿した日
+  var hiduke = '1月1日';
+
+  /* ---------- この行より下には触らない！ ------------------------------------- */
 
   Widget userIcon({required String url, double radius = 20.0}) {
     return CircleAvatar(
@@ -86,10 +98,10 @@ class _TopPageState extends State<TopPage> {
         children: [
           Row(
             children: [
-              userIcon(url: loginUserIconUrl),
+              userIcon(url: aikonUrl),
               const SizedBox(width: 8.0),
               Text(
-                loginUserId,
+                id,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16.0,
@@ -130,7 +142,7 @@ class _TopPageState extends State<TopPage> {
       children: [
         itemHeader(),
         Image.network(
-          postedImageUrl,
+          gazouUrl,
           errorBuilder: (c, o, e) => Container(
             color: Colors.red,
           ),
@@ -141,9 +153,9 @@ class _TopPageState extends State<TopPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               buttonMenuBar(),
-              Text('いいね！：$pressedLikeButtonUserId、他'),
+              Text('いいね！：$iineId、他'),
               Text(
-                postedText,
+                bunsho,
                 style: const TextStyle(color: Colors.black),
               ),
               Container(
@@ -154,7 +166,7 @@ class _TopPageState extends State<TopPage> {
                     Row(
                       children: [
                         userIcon(
-                          url: loginUserIconUrl,
+                          url: aikonUrl,
                           radius: 12.0,
                         ),
                         Container(
@@ -178,7 +190,7 @@ class _TopPageState extends State<TopPage> {
                 ),
               ),
               Text(
-                '$month月$day日',
+                hiduke,
                 style: const TextStyle(fontSize: 13.0),
               ),
             ],
@@ -214,7 +226,7 @@ class _TopPageState extends State<TopPage> {
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: userIcon(url: loginUserIconUrl, radius: 16.0),
+          icon: userIcon(url: aikonUrl, radius: 16.0),
           label: '',
         ),
       ],

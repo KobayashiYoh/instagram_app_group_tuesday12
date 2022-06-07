@@ -51,7 +51,7 @@ class _TopPageState extends State<TopPage> {
 
   /* ---------- この行より下には触らない！ ------------------------------------- */
 
-  Widget userIcon({required String url, double radius = 20.0}) {
+  Widget userIcon({required String url, double radius = 16.0}) {
     return CircleAvatar(
       radius: radius,
       backgroundImage: NetworkImage(url),
@@ -67,7 +67,7 @@ class _TopPageState extends State<TopPage> {
       elevation: 1.0,
       title: SizedBox(
         height: kToolbarHeight,
-        width: 160.0,
+        width: 152.0,
         child: Row(
           children: [
             Expanded(
@@ -233,7 +233,7 @@ class _TopPageState extends State<TopPage> {
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: userIcon(url: aikonUrl, radius: 16.0),
+          icon: userIcon(url: aikonUrl, radius: 12.0),
           label: '',
         ),
       ],

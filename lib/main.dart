@@ -209,8 +209,8 @@ class _TopPageState extends State<TopPage> {
 
   Widget instagramTabBar() {
     return BottomNavigationBar(
-      selectedItemColor: Colors.black87,
-      unselectedItemColor: Colors.black45,
+      selectedItemColor: Colors.black,
+      unselectedItemColor: Colors.black,
       showSelectedLabels: false,
       showUnselectedLabels: false,
       iconSize: 28.0,

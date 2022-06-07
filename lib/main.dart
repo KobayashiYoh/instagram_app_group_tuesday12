@@ -65,19 +65,26 @@ class _TopPageState extends State<TopPage> {
       backgroundColor: Colors.white,
       foregroundColor: Colors.black,
       elevation: 1.0,
-      title: Row(
-        children: [
-          const Text(
-            'Instagram',
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 4.0),
-            child: const Icon(
-              CupertinoIcons.chevron_down,
-              size: 16.0,
+      title: SizedBox(
+        height: kToolbarHeight,
+        width: 160.0,
+        child: Row(
+          children: [
+            Expanded(
+              child: Image.network(
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png',
+              ),
             ),
-          ),
-        ],
+            Container(
+              margin: const EdgeInsets.only(left: 4.0),
+              child: const Icon(
+                Icons.keyboard_arrow_down_outlined,
+                size: 18.0,
+                color: Colors.black,
+              ),
+            ),
+          ],
+        ),
       ),
       actions: const [
         Icon(Icons.add_box_outlined),

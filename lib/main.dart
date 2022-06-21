@@ -1,6 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/* ---------- この行より上には触らない！ ------------------------------------ */
+
+// 自分のID（日本語でもOK）
+var id = 'user_id';
+
+// 投稿する文章（\nで改行）
+var toukoubun = '投稿文';
+
+// 投稿する画像のアドレス（URL）
+var adoresu = '';
+
+/* ---------- この行より下には触らない！ ------------------------------------- */
+
 void main() {
   runApp(const MyApp());
 }
@@ -28,28 +41,10 @@ class TopPage extends StatefulWidget {
 }
 
 class _TopPageState extends State<TopPage> {
-  /* ---------- この行より上には触らない！ ------------------------------------ */
-
-  // 自分のID
-  var id = 'user_id';
-
-  // 自分のアイコン画像のアドレス（URL）
   var aikonUrl =
       'https://pics.prcm.jp/d72814fa00d0d/84842254/jpeg/84842254_480x460.jpeg';
-
-  // 投稿する画像のアドレス（URL）
-  var gazouUrl = '';
-
-  // 投稿する文章（\nで改行）
-  var bunsho = '投稿文';
-
-  // いいねを押したユーザーのID
-  var iineId = 'iine_user';
-
-  // 投稿した日
-  var hiduke = '1月1日';
-
-  /* ---------- この行より下には触らない！ ------------------------------------- */
+  final iineId = 'iine_oshita_user';
+  final hiduke = '${DateTime.now().month}月${DateTime.now().day}日';
 
   Widget userIcon({required String url, double radius = 16.0}) {
     return CircleAvatar(
@@ -149,7 +144,7 @@ class _TopPageState extends State<TopPage> {
       children: [
         itemHeader(),
         Image.network(
-          gazouUrl,
+          adoresu,
           errorBuilder: (c, o, e) => Container(
             color: Colors.red,
           ),
@@ -162,7 +157,7 @@ class _TopPageState extends State<TopPage> {
               buttonMenuBar(),
               Text('いいね！：$iineId、他'),
               Text(
-                bunsho,
+                toukoubun,
                 style: const TextStyle(color: Colors.black),
               ),
               Container(

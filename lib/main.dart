@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Mobile Instagram App',
+      title: 'Instagram App Group Tuesday12',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 /* ---------- この行より上には触らない！ ------------------------------------ */
 
-// 自分のID（日本語でもOK）
-var id = 'user_id';
+// 自分のID（日本語でもOK）       例）var id = 'tuesday12';
+var id = '';
 
-// 投稿する文章（\nで改行）
-var toukoubun = '投稿文';
+// 投稿する文章（\nで改行）       例）var toukoubun = 'だいじょぶます\nがんばるます';
+var toukoubun = '';
 
-// 投稿する画像のアドレス（URL）
+// 投稿する画像のアドレス（URL）  例）var adoresu = 'https://cdn.pixabay.com/photo/2022/07/04/17/16/dove-7301617_960_720.jpg';
 var adoresu = '';
 
 /* ---------- この行より下には触らない！ ------------------------------------- */
@@ -42,8 +42,8 @@ class TopPage extends StatefulWidget {
 
 class _TopPageState extends State<TopPage> {
   var aikonUrl =
-      'https://pics.prcm.jp/d72814fa00d0d/84842254/jpeg/84842254_480x460.jpeg';
-  final iineId = 'iine_oshita_user';
+      'https://p16-sign-va.tiktokcdn.com/musically-maliva-obj/1594805258216454~c5_720x720.jpeg?x-expires=1657958400&x-signature=JpUGyh8lfsF8Rjh0AvK%2FVXHlX%2BQ%3D';
+  final iineId = 'GroupTuesday12';
   final hiduke = '${DateTime.now().month}月${DateTime.now().day}日';
 
   Widget userIcon({required String url, double radius = 16.0}) {
@@ -247,24 +247,4 @@ class _TopPageState extends State<TopPage> {
       bottomNavigationBar: instagramTabBar(),
     );
   }
-}
-
-class PostedItem {
-  String userId;
-  String iconImageUrl;
-  String postedImage;
-  String pressedLikeButtonUserId;
-  String text;
-  int month;
-  int day;
-
-  PostedItem({
-    required this.userId,
-    required this.iconImageUrl,
-    required this.postedImage,
-    required this.pressedLikeButtonUserId,
-    required this.text,
-    required this.month,
-    required this.day,
-  });
 }

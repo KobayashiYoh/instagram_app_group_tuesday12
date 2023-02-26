@@ -1,16 +1,31 @@
-# mobile_instagram_app
+# 火曜12班「インスタアプリの画面作ってみた」
 
-A new Flutter application.
+私たち火曜12班は本講義史上初となる、プログラミングを題材としました。<br>
+インスタという身近な題材を通して、プログラミングの楽しさを知ってもらえる体験型発表となっています。
 
-## Getting Started
+## 開催日時
+2022年7月16日（土） 14:35~15:55
 
-This project is a starting point for a Flutter application.
+## 開催場所
+岡山理科大学 A1号館 PC実習室
 
-A few resources to get you started if this is your first Flutter project:
+## 参加人数
+34名
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## 遊び方
+1. DartPadにアクセス
+https://dartpad.dev/
+2. 好きな画像を見つけてアドレスをコピー
+3. お手本を例にプログラムを編集してインスタの画面を自作
+4. 完成したら挙手
+5. みんなの作品ギャラリーに投稿
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 仕様した技術
+Flutter
+
+## 作品例
+<img width="1075" alt="スクリーンショット 2023-02-26 21 55 40" src="https://user-images.githubusercontent.com/82624334/221411714-7065fb75-b667-4292-9de1-cde676d25e69.png">
+
+## 大変だったこと
+「プログラミング」という専門的な知識や技術が題材を、小・中学生でも理解できる内容にまで落とし込むのが大変でした。<br>
+極限までプログラムを簡略化し、噛み砕いた表現を用いることで、プログラミングに対する参加者の抵抗を減らしました。
